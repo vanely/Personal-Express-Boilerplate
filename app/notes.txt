@@ -1,0 +1,7 @@
+sass over node-sass:
+  - https://dev.to/ccreusat/migrating-from-node-sass-to-sass-dart-sass-with-npm-3g3c
+
+redux toolkit - @reduxjs/toolkit contains thunk, reducers, and action creators all in one:
+  - https://medium.com/@ozantekindev/async-operations-in-redux-with-the-redux-toolkit-thunk-e7d024cbf875
+  - https://redux-toolkit.js.org/introduction/getting-started
+  - https://chat.openai.com/c/1adcfa04-d623-43d3-b909-08190bb62476

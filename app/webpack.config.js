@@ -1,10 +1,12 @@
 const path = require('path');
+const { webpack } = require('webpack');
 
 module.exports = {
-  entry: './src/index.tsx',
+  entry: ['react-hot-loader/patch', './src/index.tsx'],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -22,8 +24,13 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+  ],
   devServer: {
-    contentBase: path.resolve(__dirname, 'dist'),
+    hot:true,
+    static: path.resolve(__dirname, 'dist'),
     port: 3000,
+    publicPath: '/'
   },
 };

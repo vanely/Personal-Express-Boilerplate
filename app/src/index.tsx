@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 // import { applyMiddleware } from 'redux';
+// the @reduxjs/toolkit allows for the creation of reducers(state update) and action creators(state updater) in one place
 import { configureStore } from '@reduxjs/toolkit'; 
 // import thunk from 'redux-thunk';
-// may not need thunk: https://medium.com/@ozantekindev/async-operations-in-redux-with-the-redux-toolkit-thunk-e7d024cbf875
 import App from './App'
 
 export const store = configureStore({
