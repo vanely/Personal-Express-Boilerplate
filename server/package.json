@@ -2,11 +2,9 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./server.ts",
-    "start": "node dist/bundle.js",
-    "build": "webpack"
+    "build": "webpack",
+    "dev": "npm run build; nodemon dist/bundle.js"
   },
   "keywords": [],
   "author": "",
