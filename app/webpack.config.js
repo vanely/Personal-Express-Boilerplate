@@ -1,4 +1,6 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 // const { webpack } = require('webpack');
 
 module.exports = {
@@ -21,6 +23,12 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: "Contrac",
+      template: "./src/index.html"
+    }),
+  ],
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
   },

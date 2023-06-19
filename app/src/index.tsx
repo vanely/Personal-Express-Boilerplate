@@ -1,21 +1,29 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
-// import { applyMiddleware } from 'redux';
 // the @reduxjs/toolkit allows for the creation of reducers(state update) and action creators(state updater) in one place
 import { configureStore } from '@reduxjs/toolkit'; 
-// import thunk from 'redux-thunk';
-import App from './App'
+import chats from './reducers/chat'
+import users from './reducers/users'
+import jobs from './reducers/jobs'
+
+import App from './App';
 
 export const store = configureStore({
   reducer: {
-    // reducer exports
+    Chats: chats.reducer,
+    Users: users.reducer,
+    Jobs: jobs.reducer,
   },
-})
+});
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root')
-)
+// https://stackoverflow.com/questions/63520680/argument-of-type-htmlelement-null-is-not-assignable-to-parameter-of-type-el
+const rootElement = document.getElementById('root')!;
+const root = createRoot(rootElement);
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>
+);

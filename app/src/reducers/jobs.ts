@@ -1,13 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const chats = createSlice({
-    name: 'chats',
+const jobs = createSlice({
+    name: 'jobs',
     initialState: {},
     reducers: {
-        renderChats: function () {
+        renderJobs: function () {
 
         }
     }
 })
 
-export default chats;
+export default jobs;
