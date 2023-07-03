@@ -1,15 +1,12 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-// const { webpack } = require('webpack');
-
 module.exports = {
   mode: "development",
   entry: ['./src/index.tsx'],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    // publicPath: '/'
   },
   module: {
     rules: [
@@ -35,6 +32,6 @@ module.exports = {
   },
   devServer: {
     static: path.resolve(__dirname, 'dist'),
-    port: 3000,
+    port: 4000,
   },
 };

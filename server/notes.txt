@@ -1,0 +1,3 @@
+[] NOTE: rename app to "Jamani
+[x] global config file will be .jamani-config
+[] include authentication middleware that's passed into server class
