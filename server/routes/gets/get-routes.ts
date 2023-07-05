@@ -1,10 +1,11 @@
 // get routes
-import { getAppInstance } from '../../index';
+// import { getAppInstance } from '../../index';
+import { chatRoutes } from '../base-routes';
 import { handleGetData } from '../../controllers/chat-controllers/gets/get-chats';
 import { handlePostData } from '../../controllers/chat-controllers/posts/post-chats';
 
-const app = getAppInstance();
+// const app = getAppInstance();
 
-app.get('/data', handleGetData);
-app.post('/data', handlePostData);
+chatRoutes.get('/', handleGetData);
+chatRoutes.post('/', handlePostData);
 

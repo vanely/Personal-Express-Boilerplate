@@ -1,4 +1,5 @@
 import express, { Express, Request, Response } from 'express';
+import { chatRoutes } from './routes/base-routes';
 
 class Server {
     private app: Express;
@@ -8,6 +9,7 @@ class Server {
         this.app = express();
         this.port = parseInt(process.env.SERVER_PORT) || 4000;
         this.configureMiddlewares();
+        this.configureRoutes();
     }
 
     private get port(): number {
@@ -32,12 +34,17 @@ class Server {
         next();
     }
 
+    // base routes
+    private configureRoutes(): void {
+        this.app.use('/chats', chatRoutes);
+    }
+
     public appExport(): Express {
         return this.app;
     }
 
     public start(): void {
-        this.app.listen(this._port, () => {
+        this.app.listen(this.port, () => {
             console.log(`Server is listening on port ${this.port}`);
         });
     }
