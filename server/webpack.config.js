@@ -6,9 +6,11 @@ module.exports = {
   devtool: 'source-map',
   entry: './index.ts',
   target: 'node',
+  stats: 'errors-only',
   devServer: {
     static: "./dist",
     hot: true,
+    port: 4000,
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -19,8 +21,13 @@ module.exports = {
         test: /\.ts$/,
         use: 'ts-loader',
         exclude: /node_modules/,
-      }
-    ]
+      },
+      {
+        test: /\.node$/,
+        use: 'file-loader',
+      },
+      // { test: /\.txt$/, use: 'raw-loader' },
+    ],    
   },
   resolve: {
     extensions: ['.ts', '.js'],

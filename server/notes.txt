@@ -1,6 +1,9 @@
 [] NOTE: rename app to "Jamani
 [x] global config file will be .jamani-config
 [] include authentication middleware that's passed into server class
-[] configure webpack hot reload for server
+[x] configure webpack hot reload for server
 side rendering (maybe)
 [] configure Jenkins for CI/CD with github actions
+
+[] too many server warnings
+[] server not able to be connected to when endpoint is hit

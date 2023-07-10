@@ -1,3 +1,4 @@
+import mongoose from 'mongoose';
 import express, { Express, Request, Response } from 'express';
 import { chatRoutes } from './routes/base-routes';
 
@@ -8,8 +9,16 @@ class Server {
     constructor() {
         this.app = express();
         this.port = parseInt(process.env.SERVER_PORT) || 4000;
+        this.connectDB();
         this.configureMiddlewares();
         this.configureRoutes();
+    }
+
+    private connectDB(): void {
+        // Replace 'mongodb://localhost/mydatabase' with your MongoDB connection string
+        mongoose.connect(`${process.env.DB_CONNECTION}`)
+        .then(() => console.log('MongoDB connected'))
+        .catch((error) => console.error('MongoDB connection error:', error));
     }
 
     private get port(): number {
@@ -37,10 +46,6 @@ class Server {
     // base routes
     private configureRoutes(): void {
         this.app.use('/chats', chatRoutes);
-    }
-
-    public appExport(): Express {
-        return this.app;
     }
 
     public start(): void {
